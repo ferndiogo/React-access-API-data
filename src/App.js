@@ -7,9 +7,10 @@ import Table from "./Table";
 
 /**
  * read the animals data from API
+ * to acess data, is necessary to create a PROXY
  */
 async function getAnimals(){
-  let animalsData = await fetch("https://localhost:7046/api/AnimalsAPI");
+  let animalsData = await fetch("api/AnimalsAPI");
   //avaliate the data collected
   if(!animalsData.ok){
     //ok, mean HTTP code: 200
