@@ -1,7 +1,7 @@
 /**
  * Table.js
  * 
- * This table shows a simple list of students
+ * This table shows a simple list of animalss
  */
 
  import React, { Component } from "react";
@@ -14,9 +14,12 @@
      return (
          <thead>
              <tr>
-                 <th>First Name</th>
-                 <th>Last Name</th>
-                 <th></th>
+                 <th>Name</th>
+                 <th>Specie</th>
+                 <th>Breed</th>
+                 <th>Weight</th>
+                 <th>Owner</th>
+                 <th>Photo</th>
              </tr>
          </thead>
      )
@@ -30,12 +33,15 @@
  const Body = (props) => {
      // we are building each table row, with the data we receive
      // <=> foreach()
-     const rows = props.dataTableIN.map((row, index) => {
+     const rows = props.dataTableIN.map((row) => {
          return (
-             <tr key={index}>
+             <tr key={row.id}>
                  <td>{row.name}</td>
-                 <td>{row.surname}</td>
-                 <td><button className="btn btn-outline-danger" onClick={()=>props.studentsToRemoveOut(index)}>Remove</button></td>
+                 <td>{row.specie}</td>
+                 <td>{row.breed}</td>
+                 <td>{row.weight}</td>
+                 <td>{row.photo}</td>
+                 <td>{row.ownerName}</td>
              </tr>
          )
      })
@@ -53,12 +59,12 @@
  class Table extends Component {
      render() {
          // 'read' data that was supplied to component 'Table'
-         const { studentsDataIN, studentsToRemoveOut } = this.props
+         const { animalsDataIN } = this.props
  
          return (
              <table className="table table-striped table-sucess">
                  <Header />
-                 <Body dataTableIN={studentsDataIN} studentsToRemoveOut={studentsToRemoveOut}/>
+                 <Body dataTableIN={animalsDataIN} />
              </table>
          )
      }
